@@ -31,9 +31,9 @@ class U7Logger
   function display_page(){
 
     echo '<h1>Лог</h1>';
-    echo '<p>Для добавления данных в лог используйте хук: do_action("u7logger", $var)</p>';
+    echo '<p>Для добавления данных в лог используйте хук: <br><pre>do_action("u7logger", $var);</pre></p><hr>';
 
-    $data = get_transient('u7logger');
+    $data = get_option('u7logger');
     if( ! is_array($data)){
       echo '<p>Нет данных в логе</p>';
       return;
@@ -49,7 +49,7 @@ class U7Logger
         <?php foreach($data as $item): ?>
           <tr>
             <td>
-              <?php echo $data['timestamp']; ?>
+              <?php echo $item['timestamp']; ?>
             </td>
             <td>
               <pre>
