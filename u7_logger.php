@@ -25,7 +25,7 @@ class Logger_U7
 
     });
 
-    add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), 'add_settings_link' );
+    add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), array($this, 'add_settings_link') );
 
 
     add_action('logger_u7', array($this, 'add'));
@@ -84,8 +84,8 @@ class Logger_U7
   */
   function add_settings_link($links)
   {
-    $settings_link = '<a href="tools.php?page=u7logger">Логгер</a>';
-    array_push( $links, $settings_link );
+    $settings_link = '<a href="tools.php?page=logger_u7">Логгер</a>';
+    array_unshift( $links, $settings_link );
     return $links;
   }
 }
