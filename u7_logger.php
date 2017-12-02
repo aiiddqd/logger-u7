@@ -44,15 +44,15 @@ class Logger_U7
 
     $data = array_reverse($data);
     ?>
-      <table>
+      <table border="1" width="100%">
         <tr>
           <th>Отметка времени</th>
           <th>Данные</th>
         </tr>
         <?php foreach($data as $item): ?>
           <tr>
-            <td>
-              <?php echo $item['timestamp']; ?>
+            <td valign="top" width="100px">
+              <span><?php echo $item['timestamp']; ?></span>
             </td>
             <td>
               <pre><?php var_dump($item['data']) ?></pre>
