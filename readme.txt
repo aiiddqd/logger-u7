@@ -42,5 +42,5 @@ PHP 5.6
 
 == Changelog ==
 
-= 1.1 =
+= 1.2 =
 * Init commit
