@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Logger by U7
-Description: Логирование событий на сайте. Для добавления данных в лог используйте хук: <br><code>do_action("logger_u7", $var);</code>
+Description: Logging and debug events and vars on site. For adding var in log use hook: <br><code>do_action("logger_u7", $var);</code>
 Author: WPCraft
 Author URI: https://wpcraft.ru/
 License: GPLv2 or later
@@ -33,12 +33,12 @@ class Logger_U7
 
   function display_page(){
 
-    echo '<h1>Лог</h1>';
-    echo '<p>Для добавления данных в лог используйте хук: <br><pre>do_action("logger_u7", $var);</pre></p><hr>';
+    echo '<h1>Log</h1>';
+    echo '<p>For adding data to log use hook: <br><pre>do_action("logger_u7", $var);</pre></p><hr>';
 
     $data = get_option('logger_u7');
     if( ! is_array($data)){
-      echo '<p>Нет данных в логе</p>';
+      echo '<p>No data in log</p>';
       return;
     }
 
@@ -46,8 +46,8 @@ class Logger_U7
     ?>
       <table border="1" width="100%">
         <tr>
-          <th>Отметка времени</th>
-          <th>Данные</th>
+          <th>Timestamp</th>
+          <th>Data</th>
         </tr>
         <?php foreach($data as $item): ?>
           <tr>
@@ -84,7 +84,7 @@ class Logger_U7
   */
   function add_settings_link($links)
   {
-    $settings_link = '<a href="tools.php?page=logger_u7">Логгер</a>';
+    $settings_link = '<a href="tools.php?page=logger_u7">Logger</a>';
     array_unshift( $links, $settings_link );
     return $links;
   }

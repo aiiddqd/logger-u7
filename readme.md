@@ -1,10 +1,10 @@
 # Logger U7
 
-Логирование данных для отладки
+Logging a data for debug code
 
 
-Для добавления данных в лог используйте хук:
+For adding data in log use hook:
 
 `do_action("logger_u7", 'test');`
 
-После чего журнал данных можно посмотреть в панели управления: Инструмент - Logger
+After debug data can view in admin: Tools / Logger
