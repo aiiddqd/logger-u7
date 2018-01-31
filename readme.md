@@ -19,8 +19,8 @@ do_action("logger_u7", ['tag1', $var_data1]);
 
 $var_data2 = 'test2';
 do_action("logger_u7", ['tag2', $var_data2]);
-
 ```
 
+## How get debug data?
 
-After debug data can view in admin: Tools / Logger
+After debug data can view log in admin: Tools / Logger
