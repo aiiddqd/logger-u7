@@ -26,15 +26,17 @@ class Logger_U7
     });
 
     add_filter( "plugin_action_links_" . plugin_basename( __FILE__ ), array($this, 'add_settings_link') );
-
-
+	
+	
+	add_action( 'wp_ajax_logger_u7_clear_history', array($this, 'clear_history') );
     add_action('logger_u7', array($this, 'add'));
   }
 
   function display_page(){
 
     echo '<h1>Log</h1>';
-    echo '<p>For adding data to log use hook: <br><pre>do_action("logger_u7", $var);</pre></p><hr>';
+    echo '<p>For adding data to log use hook: <br><pre>do_action("logger_u7", $var);</pre></p>';
+    echo '<a class="button clear_history" href="">Clear history</a><hr>';
 
     $data = get_option('logger_u7');
     if( ! is_array($data)){
@@ -44,13 +46,13 @@ class Logger_U7
 
     $data = array_reverse($data);
     ?>
-      <table border="1" width="100%">
+      <table border="1" width="100%" class="logger_u7_table">
         <tr>
           <th>Timestamp</th>
           <th>Data</th>
         </tr>
         <?php foreach($data as $item): ?>
-          <tr>
+          <tr class="data">
             <td valign="top" width="100px">
               <span><?php echo $item['timestamp']; ?></span>
             </td>
@@ -60,7 +62,27 @@ class Logger_U7
           </tr>
         <?php endforeach; ?>
       </table>
-    <?php
+
+      <script>
+          jQuery( '.clear_history' ).click(
+            function( eventObject ){
+				eventObject.preventDefault();
+				jQuery.post( 
+					'<?php echo get_admin_url() ?>/admin-ajax.php',
+					{
+						action : 'logger_u7_clear_history'
+					},
+					function( response ){
+						response = JSON.parse( response );
+						if ( response.done == true ){
+							jQuery( '.logger_u7_table tr.data' ).remove();
+						}
+					}
+				);
+            }
+          )
+      </script>
+<?php
   }
 
   function add($data = ''){
@@ -87,6 +109,12 @@ class Logger_U7
     $settings_link = '<a href="tools.php?page=logger_u7">Logger</a>';
     array_unshift( $links, $settings_link );
     return $links;
+  }
+  
+  function clear_history()
+  {
+    update_option('logger_u7', array(), false);
+    wp_die( json_encode( array( 'done' => true ) ) );
   }
 }
 
