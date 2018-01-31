@@ -1,6 +1,6 @@
 # Logger U7
 
-Logging a data for debug code
+Logging a data for debug code in WordPress
 
 
 For adding data in log use hook:
