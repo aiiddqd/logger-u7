@@ -15,10 +15,10 @@ do_action("logger_u7", $var_data);
 
 ```
 $var_data1 = 'test1';
-do_action("logger_u7", ['t1', $var_data1]);
+do_action("logger_u7", ['tag1', $var_data1]);
 
 $var_data2 = 'test2';
-do_action("logger_u7", ['t2', $var_data2]);
+do_action("logger_u7", ['tag2', $var_data2]);
 
 ```
 
