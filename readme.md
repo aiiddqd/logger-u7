@@ -11,7 +11,7 @@ $var_data = 'test';
 do_action("logger_u7", $var_data);
 ```
 
-## Example with multiple logger
+## Example with multiple var for log and labels
 
 ```
 $var_data1 = 'test1';
