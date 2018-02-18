@@ -29,6 +29,7 @@ class Logger_U7
 
 
     add_action('logger_u7', array($this, 'add'));
+    add_action('cl', array($this, 'add'));
   }
 
   function display_page(){
