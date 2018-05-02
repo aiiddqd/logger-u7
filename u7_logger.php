@@ -2,11 +2,11 @@
 /*
 Plugin Name: Logger by U7
 Description: Logging and debug events and vars on site. For adding var in log use hook: <br><code>do_action("logger_u7", $var);</code>
-Author: WPCraft forked Artabr
+Author: WPCraft
 Author URI: https://wpcraft.ru/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version: 1.3
+Version: 1.2
 */
 register_uninstall_hook( __FILE__, 'logger_u7_uninstall' );
 function logger_u7_uninstall() {
@@ -62,7 +62,7 @@ class Logger_U7 {
 				<th>Data</th>
 			</tr>
 			<?php
-			$i=0;
+			$i = 0;
 			foreach ( $data as $item ): ?>
 				<tr>
 					<td valign="top" width="20px">
@@ -72,12 +72,22 @@ class Logger_U7 {
 						<span><?php echo $item['timestamp']; ?></span>
 					</td>
 					<td>
-						<?php $this->vd($item['data']);?>
+						<?php $this->vd( $item['data'] ); ?>
 					</td>
 				</tr>
-				<?php $i++; endforeach; ?>
+				<?php $i ++; endforeach; ?>
 		</table>
 		<?php
+	}
+	
+	public function vd( $var ) {
+		echo '<pre>';
+		if ( ! empty( $var ) ) {
+			print_r( $var );
+		} else {
+			var_dump( $var );
+		}
+		echo '</pre>';
 	}
 	
 	/**
@@ -89,22 +99,13 @@ class Logger_U7 {
 			$log = array();
 		}
 		$log[] = array(
-			'timestamp' => date_i18n( "Y-m-d H:i:s" ),
+			'timestamp' => date_i18n( "d.m.Y H:i:s" ),
 			'data'      => $data,
 		);
 		$log   = array_slice( $log, - 99, 99 );
 		update_option( 'logger_u7', $log, false );
 	}
 	
-	public function vd($var){
-		echo '<pre>';
-		if (!empty($var)){
-			print_r($var);
-		} else {
-			var_dump($var);
-		}
-		echo '</pre>';
-	}
 	/**
 	 * Add fast link in plugins list
 	 */
