@@ -1,5 +1,5 @@
 === Logger U7 ===
-Contributors: casepress
+Contributors: casepress, artabr
 Donate link: https://wpcraft.ru/
 Tags: wordpress, woocommerce, logger, log, debug
 Requires at least: 4.0
