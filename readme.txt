@@ -1,5 +1,5 @@
 === Logger U7 ===
-Contributors: casepress
+Contributors: casepress, artabr
 Donate link: https://wpcraft.ru/
 Tags: wordpress, woocommerce, logger, log, debug
 Requires at least: 4.0
@@ -41,6 +41,12 @@ PHP 5.6
 1. Logger page
 
 == Changelog ==
+
+= 1.3 =
+* Добавлена кнопка очистки данных
+* Добавлена дополнительная колонка со счетчиком по порядку
+* Обновлена функция вывода данных
+* Добавлено удаление данных при удалении плагина
 
 = 1.2 =
 * Init commit
