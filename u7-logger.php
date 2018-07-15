@@ -6,7 +6,7 @@ Author: WPCraft
 Author URI: https://wpcraft.ru/
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version: 1.2
+Version: 1.3
 */
 register_uninstall_hook( __FILE__, 'logger_u7_uninstall' );
 function logger_u7_uninstall() {
