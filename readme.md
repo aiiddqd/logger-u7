@@ -11,6 +11,14 @@ $var_data = 'test';
 do_action("logger_u7", $var_data);
 ```
 
+or
+
+```
+$var_data = 'test';
+do_action("cl", $var_data); //shorten
+```
+
+
 ## Example with multiple var for log and labels
 
 ```
