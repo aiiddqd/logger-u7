@@ -2,11 +2,11 @@
 /*
 Plugin Name: Logger by U7
 Description: Logging and debug events and vars on site. For adding var in log use hook: <br><code>do_action("logger_u7", $var);</code>
-Author: WPCraft
-Author URI: https://wpcraft.ru/
+Author: uptimizt
+Author URI: https://github.com/uptimizt
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Version: 1.4
+Version: 1.5
 */
 
 namespace uptimizt;
